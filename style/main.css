@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif&family=Playfair+Display:ital@0;1&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dark: #292c35;
+  --light: #f1f1f1;
+  --label: #111;
+  transition: 0.2s ease-out;
+  -webkit-transition: 0.2 ease-out;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switcher {
+  display: inline-block;
+  position: absolute;
+  right: 25px;
+  top: 15px;
+}
+
+.switcher__slider {
+  display: inline-flex;
+  justify-content: space-around;
+  position: relative;
+  width: 70px;
+  height: 35px;
+  background: var(--label);
+  cursor: pointer;
+  border-radius: 35px;
+  transition: 0.2s ease-out;
+  -webkit-transition: 0.2s ease-out;
+}
+
+.switcher__slider::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 27px;
+  height: 27px;
+  background-color: var(--light);
+  border-radius: 50%;
+  bottom: 4px;
+  left: 4px;
+  transition: 0.2s ease-out;
+}
+
+.switcher input {
+  position: absolute;
+  width: 70px;
+  height: 35px;
+  opacity: 0;
+  z-index: 2;
+}
+
+#check:checked + .switcher__slider::before {
+  transform: translateX(33px);
+  -webkit-transform: translateX(33px);
+  -ms-transform: translateX(33px);
+}
+
+#check:checked + .switcher__slider img:last-child {
+  opacity: 0;
+}
+
+#check:not(:checked) + .switcher__slider img:first-child {
+  opacity: 0;
+}
+
+#check:checked + body {
+  background-color: red;
+}
+
+.switcher__slider img {
+  width: 27px;
+  transition: 0.2s ease-out;
+}
+
+.dark {
+  background-color: var(--dark);
+  color: var(--light);
+}
+
+h1 {
+  font-size: 72px;
+  font-family: "PT Serif", serif;
+  font-style: italic;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 40%;
+  height: 3px;
+  background: linear-gradient(360deg, #a103c9, #7a00ff, #0000);
+  margin: 10px auto;
+}
+
+blockquote {
+  font-size: 18px;
+  text-align: center;
+  font-family: "Playfair Display", serif;
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 52px;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
